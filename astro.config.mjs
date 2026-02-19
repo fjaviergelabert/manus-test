@@ -15,4 +15,7 @@ export default defineConfig({
 	image: {
 		layout: "constrained",
 	},
+	server: {
+		allowedHosts: true,
+	},
 });
