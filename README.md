@@ -15,24 +15,24 @@
 
 - [Overview](#overview)
 - [Getting Started](#gettingStarted)
-    - [Removing Demo Content](#removingDemoContent)
-    - [Removing Decap CMS](#removingDecapCms)
-    - [Removing Dark Mode](#removingDarkMode)
-    - [Exploring the Codebase with CodeTour](#exploringWithCodeTour)
+  - [Removing Demo Content](#removingDemoContent)
+  - [Removing Decap CMS](#removingDecapCms)
+  - [Removing Dark Mode](#removingDarkMode)
+  - [Exploring the Codebase with CodeTour](#exploringWithCodeTour)
 - [Prerequisites](#prerequisites)
 - [Features](#features)
 - [Project Tree](#projectTree)
-    - [Root Files and Folders](#rootFilesAndFolders)
+  - [Root Files and Folders](#rootFilesAndFolders)
 - [Customizing Your Site](#customizingYourSite)
-    - [Working with Components](#workingWithComponents)
-    - [Adding & Customizing Pages](#addingCustomizingPages)
-    - [Navigation System](#navigationSystem)
-    - [Styling Your Site](#stylingYourSite)
-    - [SEO & Metadata](#seoMetadata)
-    - [Images Optimization](#imagesOptimization)
-    - [Content Management & Blog](#contentManagement)
-    - [Scripts & Event Handling](#scriptsEventHandling)
-    - [Sitemap Configuration](#sitemapConfiguration)
+  - [Working with Components](#workingWithComponents)
+  - [Adding & Customizing Pages](#addingCustomizingPages)
+  - [Navigation System](#navigationSystem)
+  - [Styling Your Site](#stylingYourSite)
+  - [SEO & Metadata](#seoMetadata)
+  - [Images Optimization](#imagesOptimization)
+  - [Content Management & Blog](#contentManagement)
+  - [Scripts & Event Handling](#scriptsEventHandling)
+  - [Sitemap Configuration](#sitemapConfiguration)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
@@ -455,10 +455,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero/Hero.astro';
 ---
 
-<BaseLayout
-  title="Page Title"
-  description="Page description for meta tags"
->
+<BaseLayout title="Page Title" description="Page description for meta tags">
   <Hero />
   <!-- Add more components -->
 </BaseLayout>
@@ -509,9 +506,9 @@ If you want to use a different header design from the CodeStitch library, here's
 4. **Copy the LESS/CSS** from CodeStitch and paste it into the component's `<style lang="less">` tag
 5. **Copy the JavaScript** from CodeStitch and paste it into `src/js/nav.js`, wrapped with `document.addEventListener('astro:page-load', () => {})` for View Transitions compatibility
 6. **Update imports and paths:**
-    - Replace image paths with Icon components where appropriate
-    - Import and add `<DarkModeToggle />` if your design includes dark mode
-    - Update any hardcoded URLs to use your actual routes
+   - Replace image paths with Icon components where appropriate
+   - Import and add `<DarkModeToggle />` if your design includes dark mode
+   - Update any hardcoded URLs to use your actual routes
 7. **Update BaseLayout.astro** to import your new header component
 8. **Optional:** To make your custom header work with `navData.json`, replace the static navigation list with the `.cs-ul-wrapper` pattern shown below
 
@@ -582,8 +579,8 @@ If you want your custom CodeStitch header to use data-driven navigation, replace
 Don't forget to import the helper functions in your component's frontmatter:
 
 ```javascript
-import { isCurrentPage, getDropdownId } from "@js/utils.js";
-import navData from "@data/navData.json";
+import { isCurrentPage, getDropdownId } from '@js/utils.js';
+import navData from '@data/navData.json';
 ```
 
 #### Manual Active State Management
@@ -640,12 +637,12 @@ Customize site-wide colors, fonts and other properties in `src/styles/root.less`
 
 ```less
 :root {
-	--primary: #aff425;
-	--primaryLight: #7aa329;
-	--secondary: #ffba43;
-	--bodyTextColor: #4e4b66;
-	--bodyTextColorWhite: #fafbfc;
-	// ... more variables
+  --primary: #aff425;
+  --primaryLight: #7aa329;
+  --secondary: #ffba43;
+  --bodyTextColor: #4e4b66;
+  --bodyTextColorWhite: #fafbfc;
+  // ... more variables
 }
 ```
 
@@ -708,19 +705,16 @@ BaseLayout accepts simple props with sensible defaults from `client.ts`:
 
 ```typescript
 interface Props {
-	title?: string; // Page title (defaults to SITE.title)
-	description?: string; // Meta description (defaults to SITE.description)
-	heroImage?: HeroImage; // Optional social sharing image
+  title?: string; // Page title (defaults to SITE.title)
+  description?: string; // Meta description (defaults to SITE.description)
+  heroImage?: HeroImage; // Optional social sharing image
 }
 ```
 
 **Basic page (uses defaults from client.ts):**
 
 ```astro
-<BaseLayout
-  title="About Us"
-  description="Learn about our company"
->
+<BaseLayout title="About Us" description="Learn about our company">
   <!-- Page content -->
 </BaseLayout>
 ```
@@ -729,16 +723,12 @@ interface Props {
 
 ```astro
 ---
-import heroImage from "@assets/images/hero.jpg";
-import { getImage } from "astro:assets";
-const optimizedImage = await getImage({ src: heroImage, format: "webp" });
+import heroImage from '@assets/images/hero.jpg';
+import { getImage } from 'astro:assets';
+const optimizedImage = await getImage({ src: heroImage, format: 'webp' });
 ---
 
-<BaseLayout
-  title="Projects"
-  description="Our portfolio"
-  heroImage={optimizedImage}
->
+<BaseLayout title="Projects" description="Our portfolio" heroImage={optimizedImage}>
   <!-- Page content -->
 </BaseLayout>
 ```
@@ -763,14 +753,16 @@ Add custom JSON-LD directly in any page:
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What services do you offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer consulting and development services."
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services do you offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer consulting and development services."
+          }
         }
-      }]
+      ]
     }
   </script>
 
@@ -784,21 +776,21 @@ For schemas used across multiple pages, create helper functions following the ex
 
 ```javascript
 // src/js/faqSchema.js
-import { SITE } from "@data/client";
+import { SITE } from '@data/client';
 
 export function getFAQSchema(faqs) {
-	return {
-		"@context": "https://schema.org",
-		"@type": "FAQPage",
-		mainEntity: faqs.map((item) => ({
-			"@type": "Question",
-			name: item.question,
-			acceptedAnswer: {
-				"@type": "Answer",
-				text: item.answer,
-			},
-		})),
-	};
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
 }
 ```
 
@@ -806,7 +798,7 @@ Usage in page:
 
 ```astro
 ---
-import { getFAQSchema } from "@js/faqSchema";
+import { getFAQSchema } from '@js/faqSchema';
 const faqSchema = getFAQSchema(faqData);
 ---
 
@@ -868,8 +860,8 @@ This template is configured in `astro.config.mjs` with `layout: 'constrained'` a
 
 ```astro
 ---
-import { Picture } from "astro:assets";
-import heroImage from "@assets/images/hero.jpg";
+import { Picture } from 'astro:assets';
+import heroImage from '@assets/images/hero.jpg';
 ---
 
 <Picture
@@ -878,7 +870,7 @@ import heroImage from "@assets/images/hero.jpg";
   width={400}
   formats={['avif', 'webp']}
   priority
-  pictureAttributes={{ class: "cs-picture" }}
+  pictureAttributes={{ class: 'cs-picture' }}
 />
 ```
 
@@ -899,16 +891,12 @@ When you pass a `heroImage` to BaseLayout, it's automatically:
 
 ```astro
 ---
-import heroImage from "@assets/images/hero.jpg";
-import { getImage } from "astro:assets";
-const optimizedImage = await getImage({ src: heroImage, format: "webp" });
+import heroImage from '@assets/images/hero.jpg';
+import { getImage } from 'astro:assets';
+const optimizedImage = await getImage({ src: heroImage, format: 'webp' });
 ---
 
-<BaseLayout
-  title="Projects"
-  description="Our portfolio"
-  heroImage={optimizedImage}
->
+<BaseLayout title="Projects" description="Our portfolio" heroImage={optimizedImage}>
   <!-- content -->
 </BaseLayout>
 ```
@@ -931,9 +919,9 @@ In your page:
 
 ```astro
 ---
-import heroImage from "@assets/images/hero.jpg";
-import { getImage } from "astro:assets";
-const optimizedImage = await getImage({ src: heroImage, format: "webp" });
+import heroImage from '@assets/images/hero.jpg';
+import { getImage } from 'astro:assets';
+const optimizedImage = await getImage({ src: heroImage, format: 'webp' });
 ---
 
 <BaseLayout heroImage={optimizedImage}>
@@ -944,12 +932,7 @@ const optimizedImage = await getImage({ src: heroImage, format: "webp" });
 In the rendered HTML `<head>`:
 
 ```html
-<link
-	rel="preload"
-	as="image"
-	href="/optimized-hero.webp"
-	fetchpriority="high"
-/>
+<link rel="preload" as="image" href="/optimized-hero.webp" fetchpriority="high" />
 ```
 
 **When to use preloading:**
@@ -1036,9 +1019,9 @@ This template includes custom styles for the Decap CMS preview pane, so that blo
 
 - The preview styles are defined in `public/admin/decap-preview-styles.css`.
 - The CMS preview script in `src/pages/admin.astro`:
-    - pulls the props from the collection
-    - creates the DOM elements
-    - registers these elements and styles for the preview panel to use
+  - pulls the props from the collection
+  - creates the DOM elements
+  - registers these elements and styles for the preview panel to use
 
 **How to update or customize:**
 
@@ -1155,17 +1138,17 @@ This template includes automatic sitemap generation using <a href="https://docs.
 The sitemap is pre-configured in `astro.config.mjs`. Here's what's included:
 
 ```js
-import sitemap from "@astrojs/sitemap";
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-	site: "https://yourwebsite.com", // Replace with your site URL
-	integrations: [
-		sitemap({
-			filter: (page) => !page.includes("/admin"),
-			changefreq: "weekly",
-			priority: 0.7,
-		}),
-	],
+  site: 'https://yourwebsite.com', // Replace with your site URL
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
+  ],
 });
 ```
 
@@ -1185,24 +1168,24 @@ Fore more configuration options, read the [full Astro Sitemap documentation](htt
 Before deploying, ensure you've configured:
 
 1. **Site URLs** - Update in:
-    - `astro.config.mjs` - `site` property
-    - `src/data/client.ts` - `SITE.url`
-    - `public/robots.txt` - Sitemap URL
+   - `astro.config.mjs` - `site` property
+   - `src/data/client.ts` - `SITE.url`
+   - `public/robots.txt` - Sitemap URL
 
 2. **Business Information** - Update `src/data/client.ts`:
-    - Company name, address, phone
-    - Email and opening hours
-    - Social media links
+   - Company name, address, phone
+   - Email and opening hours
+   - Social media links
 
 3. **Favicons** - Replace default favicons in `public/assets/favicons/`
-    - Use https://realfavicongenerator.net/
+   - Use https://realfavicongenerator.net/
 
 4. **Default Social Image** - Create `public/assets/social.jpg` (1200x600px recommended)
 
 5. **Decap CMS Configuration** - Update `public/admin/config.yml`:
-    - Repository name
-    - Site URL
-    - DecapBridge settings
+   - Repository name
+   - Site URL
+   - DecapBridge settings
 
 6. **Test JSON-LD and Social Sharing** - Validate before deploying:
 
@@ -1242,21 +1225,21 @@ Fill in the 3 input fields:
 - Github repository: it has to be in a `user-or-org/repository-name` format. e.g. `BuckyBuck135/testing-decapbridge`
 - Github access token.
   To create a personal access token in GitHub, follow these steps:
-    1. Log into your Github account.
-    2. Click on your profile picture (top right) (not the repository profile), and click the "Settings" link.
-    3. Scroll down and click the "Developer Settings" link.
-    4. Click the GitHub "Personal access tokens" link and choose `fine-grained tokens`
-    5. Click the "Generate new token" button and provide your password again if required.
-    6. Provide a name for the GitHub personal access token in the "Note" field.
-    7. Set the access token's "expiration" timeout to "No expiration."
-    8. Set the "Repository access" to the desired repository only.
-    9. Set the "Permissions / Repository permissions" to **read-write access** for this repository's **Contents** and **Pull requests. (**This is needed by DecapCMS to read your markdown, and write new content via Pull Requests.)
-    10. Click "Generate token.", double check the permissions and click the Generate Token button
-    11. **Make sure to copy your GitHub Personal Access Token now as you will not be able to see this again.**
+  1. Log into your Github account.
+  2. Click on your profile picture (top right) (not the repository profile), and click the "Settings" link.
+  3. Scroll down and click the "Developer Settings" link.
+  4. Click the GitHub "Personal access tokens" link and choose `fine-grained tokens`
+  5. Click the "Generate new token" button and provide your password again if required.
+  6. Provide a name for the GitHub personal access token in the "Note" field.
+  7. Set the access token's "expiration" timeout to "No expiration."
+  8. Set the "Repository access" to the desired repository only.
+  9. Set the "Permissions / Repository permissions" to **read-write access** for this repository's **Contents** and **Pull requests. (**This is needed by DecapCMS to read your markdown, and write new content via Pull Requests.)
+  10. Click "Generate token.", double check the permissions and click the Generate Token button
+  11. **Make sure to copy your GitHub Personal Access Token now as you will not be able to see this again.**
 
-        ![The Permissions settings](public/assets/readme-images/github-permissions.png)
+      ![The Permissions settings](public/assets/readme-images/github-permissions.png)
 
-    12. Double check your permissions before generating the token. It must have read and write access to Contents and Pull Requests.
+  12. Double check your permissions before generating the token. It must have read and write access to Contents and Pull Requests.
 
 - Decap CMS URL: provide the (deployed) URL of the Decap CMS dashboard. e.g [`https://testing-decapbridge.netlify.app/admin/#/`](https://testing-decapbridge.netlify.app/admin/#/)
 
@@ -1267,20 +1250,20 @@ Fill in the 3 input fields:
 ```yaml
 # Use DecapBridge auth (required)
 backend:
-    name: git-gateway
-    repo: BuckyBuck135/testing-decapbridge # provided by decapbridge
-    branch: main
-    identity_url: https://auth.decapbridge.com/sites/5605bbe7-08f2-4ce5-bce2-7d97def08bed # provided by decapbridge
-    gateway_url: https://gateway.decapbridge.com # provided by decapbridge
+  name: git-gateway
+  repo: BuckyBuck135/testing-decapbridge # provided by decapbridge
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/5605bbe7-08f2-4ce5-bce2-7d97def08bed # provided by decapbridge
+  gateway_url: https://gateway.decapbridge.com # provided by decapbridge
 
-    # Quickly see who did what (optional)
-    commit_messages:
-        create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-        update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-        delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-        uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
-        deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
-        openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+  # Quickly see who did what (optional)
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
@@ -1291,8 +1274,8 @@ site_url: https://testing-decapbridge.netlify.app
 
 2. Push changes to the repo and test the authentication system.
 
-    > [!IMPORTANT]
-    > As the admin of the site, your login credentials to access the Decap dashboard are the same as your decapbridge.com credentials.
+   > [!IMPORTANT]
+   > As the admin of the site, your login credentials to access the Decap dashboard are the same as your decapbridge.com credentials.
 
 3. Invite your client from your decapbridge dashboard. This will create a decapbridge collaborator account for them. From there, they will be able to access their Decap dashboard, reset their password etc.
 

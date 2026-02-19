@@ -2,11 +2,11 @@
 // SideBySideReverse component from index.astro (#sbs-r section)
 
 // Utils
-import { Picture } from "astro:assets";
+import { Picture } from 'astro:assets';
 
 // Images
-import construction from "@assets/images/services/construction.jpg";
-import cabinets2 from "@assets/images/services/cabinets2.jpg";
+import construction from '@assets/images/services/construction.jpg';
+import cabinets2 from '@assets/images/services/cabinets2.jpg';
 ---
 
 <section id="sbs-r">
@@ -19,7 +19,7 @@ import cabinets2 from "@assets/images/services/cabinets2.jpg";
         width={400}
         height={560}
         formats={['avif', 'webp']}
-        pictureAttributes={{ class: "cs-picture cs-picture1" }}
+        pictureAttributes={{ class: 'cs-picture cs-picture1' }}
       />
       <Picture
         src={cabinets2}
@@ -27,7 +27,7 @@ import cabinets2 from "@assets/images/services/cabinets2.jpg";
         width={400}
         height={560}
         formats={['avif', 'webp']}
-        pictureAttributes={{ class: "cs-picture cs-picture2" }}
+        pictureAttributes={{ class: 'cs-picture cs-picture2' }}
       />
     </div>
     <!-- Right Content Section-->
@@ -35,19 +35,17 @@ import cabinets2 from "@assets/images/services/cabinets2.jpg";
       <span class="cs-topper">SEO Ranking</span>
       <h2 class="cs-title">Talk about a main service keyword</h2>
       <p class="cs-text">
-        In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-        officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-        et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-        nonatourean olei aptent taciti sociosqu ad litora torquent per.
+        In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor
+        mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit
+        amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
       </p>
       <p class="cs-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non tenetur,
-        iure nihil ipsam qui atque commodi id voluptatem nesciunt, quis animi
-        fuga cum doloribus! Eaque laboriosam, unde consectetur iure asperiores
-        ullam. Consequuntur debitis a voluptatibus vitae optio autem explicabo
-        quia neque est quas, in placeat. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Doloribus modi laudantium voluptatibus
-        rem libero error minus quia eligendi sapiente eos.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non tenetur, iure nihil ipsam qui
+        atque commodi id voluptatem nesciunt, quis animi fuga cum doloribus! Eaque laboriosam, unde
+        consectetur iure asperiores ullam. Consequuntur debitis a voluptatibus vitae optio autem
+        explicabo quia neque est quas, in placeat. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Doloribus modi laudantium voluptatibus rem libero error minus quia
+        eligendi sapiente eos.
       </p>
     </div>
   </div>
@@ -76,7 +74,7 @@ import cabinets2 from "@assets/images/services/cabinets2.jpg";
 
       .cs-left {
         /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
+        font-size: ~'min(2.31vw, .7em)';
         /* using ems so we can use font size to scale the whole section */
         width: (631/16em);
         height: (636/16em);
@@ -197,7 +195,7 @@ import cabinets2 from "@assets/images/services/cabinets2.jpg";
       }
 
       .cs-left {
-        font-size: ~"min(1.2vw, 1em)";
+        font-size: ~'min(1.2vw, 1em)';
         /* sends it to the right */
         order: 2;
         flex: none;

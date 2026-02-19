@@ -2,26 +2,24 @@
 // Gallery component from index.astro
 
 // Utils
-import { Picture } from "astro:assets";
+import { Picture } from 'astro:assets';
 
 // Images
-import port1 from "@assets/images/projects/port1.jpg";
-import port2 from "@assets/images/projects/port2.jpg";
-import port3 from "@assets/images/projects/port3.jpg";
-import port4 from "@assets/images/projects/port4.jpg";
-import port5 from "@assets/images/projects/port5.jpg";
-import port6 from "@assets/images/projects/port6.jpg";
-import port7 from "@assets/images/projects/port7.jpg";
-import port8 from "@assets/images/projects/port8.jpg";
-import port9 from "@assets/images/projects/port9.jpg";
+import port1 from '@assets/images/projects/port1.jpg';
+import port2 from '@assets/images/projects/port2.jpg';
+import port3 from '@assets/images/projects/port3.jpg';
+import port4 from '@assets/images/projects/port4.jpg';
+import port5 from '@assets/images/projects/port5.jpg';
+import port6 from '@assets/images/projects/port6.jpg';
+import port7 from '@assets/images/projects/port7.jpg';
+import port8 from '@assets/images/projects/port8.jpg';
+import port9 from '@assets/images/projects/port9.jpg';
 ---
 
 <section id="gallery">
   <div class="cs-container">
     <span class="cs-topper">Our Portfolio</span>
-    <h2 class="cs-title">
-      Et orci volutpat, back up generator installations
-    </h2>
+    <h2 class="cs-title">Et orci volutpat, back up generator installations</h2>
     <div class="cs-image-group">
       <!-- Row 1-->
       <div class="cs-row cs-row-1">
@@ -32,7 +30,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture1" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture1' }}
         />
         <Picture
           src={port4}
@@ -40,7 +38,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture2" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture2' }}
         />
         <Picture
           src={port7}
@@ -48,7 +46,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture3" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture3' }}
         />
       </div>
       <!-- Row 2 -->
@@ -60,7 +58,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture1" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture1' }}
         />
         <Picture
           src={port5}
@@ -68,7 +66,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture2" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture2' }}
         />
         <Picture
           src={port8}
@@ -76,7 +74,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture3" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture3' }}
         />
       </div>
       <!-- Row 3 -->
@@ -88,7 +86,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture1" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture1' }}
         />
         <Picture
           src={port6}
@@ -96,7 +94,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture2" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture2' }}
         />
         <Picture
           src={port9}
@@ -104,7 +102,7 @@ import port9 from "@assets/images/projects/port9.jpg";
           width={400}
           height={560}
           formats={['avif', 'webp']}
-          pictureAttributes={{ class: "cs-picture cs-picture3" }}
+          pictureAttributes={{ class: 'cs-picture cs-picture3' }}
         />
       </div>
     </div>
@@ -145,7 +143,7 @@ import port9 from "@assets/images/projects/port9.jpg";
 
       .cs-image-group {
         /* used rem so it doesn't scale with the font size of on parent */
-        font-size: ~"min(1.1vw, 1em)";
+        font-size: ~'min(1.1vw, 1em)';
         width: 100%;
         max-width: (1322/16em);
         margin: 0 auto (60/16rem);

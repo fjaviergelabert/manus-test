@@ -13,6 +13,12 @@ npm start               # Alias for dev
 npm run build           # Build for production
 npm run preview         # Preview production build locally
 
+# Linting & Formatting
+npm run lint             # Run ESLint
+npm run lint:fix         # Auto-fix ESLint errors
+npm run format           # Format code with Prettier
+npm run typecheck        # Run Astro type checking
+
 # Utility Scripts
 npm run remove-decap     # Remove Decap CMS integration
 npm run remove-demo      # Remove demo content (keeps blog/CMS)
@@ -41,6 +47,7 @@ src/
 ### Imports
 
 Use path aliases defined in tsconfig.json:
+
 ```typescript
 import ComponentName from '@components/ComponentName/ComponentName.astro';
 import { SITE } from '@data/client';
@@ -54,6 +61,7 @@ import { helperFn } from '@js/utils.js';
 
 - **strictNullChecks: true** enabled
 - Define Props interfaces explicitly:
+
 ```typescript
 interface Props {
   title: string;
@@ -75,6 +83,7 @@ interface Props {
 ### Component Structure
 
 **Component-per-folder pattern:**
+
 ```
 src/components/
 └── ComponentName/
@@ -82,6 +91,7 @@ src/components/
 ```
 
 **Astro component template:**
+
 ```astro
 ---
 // Imports at top
@@ -90,7 +100,6 @@ src/components/
 ---
 
 <!-- HTML content -->
-
 <style lang="less">
   // Scoped styles
 </style>
@@ -101,6 +110,7 @@ src/components/
 - Use **CSS variables** for design tokens (defined in `src/styles/root.less`)
 - Mobile-first responsive design
 - Nested selectors with `&`:
+
 ```less
 .button {
   &:hover {
@@ -108,12 +118,14 @@ src/components/
   }
 }
 ```
+
 - Utility classes prefixed with `cs-`
 
 ### JavaScript/TypeScript Utilities
 
 - ES6+ syntax with arrow functions
 - JSDoc comments for exported functions:
+
 ```javascript
 /**
  * Formats date to readable string
@@ -134,6 +146,7 @@ export function formatDate(date) {
 ### View Transitions
 
 Wrap scripts with `astro:page-load` event:
+
 ```javascript
 document.addEventListener('astro:page-load', () => {
   // Runs on initial load and after navigation
@@ -144,17 +157,14 @@ document.addEventListener('astro:page-load', () => {
 ### Images
 
 **Images must be in `src/assets/` for optimization:**
+
 ```astro
 ---
-import { Picture } from "astro:assets";
-import image from "@assets/images/photo.jpg";
+import { Picture } from 'astro:assets';
+import image from '@assets/images/photo.jpg';
 ---
-<Picture
-  src={image}
-  alt="Description"
-  formats={['avif', 'webp']}
-  width={400}
-/>
+
+<Picture src={image} alt="Description" formats={['avif', 'webp']} width={400} />
 ```
 
 - Public images in `public/assets/` are NOT optimized
@@ -181,7 +191,9 @@ import image from "@assets/images/photo.jpg";
 ## Important Notes
 
 - **No testing framework** configured - add before writing tests
-- **No linting/formatting** configured - consider adding ESLint/Prettier
+- **Linting configured:** ESLint + Prettier for Astro + TypeScript
+  - Run `npm run lint` to check for errors
+  - Run `npm run typecheck` for TypeScript type errors
 - Use `await` for image optimization with `getImage()`
 - Import paths use aliases, not relative paths
 - All blog content validated via Content Collections in `src/content.config.ts`

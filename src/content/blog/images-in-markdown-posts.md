@@ -3,7 +3,7 @@ title: Images in blog posts
 description: How to use images in blog posts
 author: Code Stitch
 date: 2024-06-08T15:27:34.591Z
-image: "@assets/images/blog/placeholder.jpg"
+image: '@assets/images/blog/placeholder.jpg'
 imageAlt: Bathroom
 isFeatured: false
 ---
@@ -38,4 +38,3 @@ The `<Image />` and `<Picture />` components are unavailable in .md files. If yo
 ## Uploading images on the CMS
 
 Images uploaded via the CMS will be stored in `/src`. The kit is configured so that these images are automatically optimized by Astro. More details on [images in content collections](https://docs.astro.build/en/guides/images/#images-in-content-collections)
-

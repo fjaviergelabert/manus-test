@@ -1,25 +1,40 @@
 {
-	"name": "intermediate-astro-decap-cms-starter-kit",
-	"type": "module",
-	"version": "3.0.0",
-	"scripts": {
-		"astro": "astro dev",
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"remove-decap": "node scripts/remove-decap.js",
-		"remove-demo": "node scripts/remove-demo.js",
-		"remove-dark-mode": "node scripts/remove-dark-mode.js"
-	},
-	"dependencies": {
-		"@astrojs/sitemap": "^3.7.0",
-		"astro": "^5.16.16",
-		"astro-icon": "^1.1.5",
-		"autoprefixer": "^10.4.24",
-		"less": "^4.5.1"
-	},
-	"devDependencies": {
-		"netlify-plugin-cache": "^1.0.3"
-	}
+  "name": "intermediate-astro-decap-cms-starter-kit",
+  "type": "module",
+  "version": "3.0.0",
+  "scripts": {
+    "astro": "astro dev",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,astro,json,md,less}\"",
+    "typecheck": "astro check",
+    "remove-decap": "node scripts/remove-decap.js",
+    "remove-demo": "node scripts/remove-demo.js",
+    "remove-dark-mode": "node scripts/remove-dark-mode.js"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.16.16",
+    "astro-icon": "^1.1.5",
+    "autoprefixer": "^10.4.24",
+    "less": "^4.5.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.6.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "globals": "^17.3.0",
+    "netlify-plugin-cache": "^1.0.3",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript-eslint": "^8.56.0"
+  },
+  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc"
 }
